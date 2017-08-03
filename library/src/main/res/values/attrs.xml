@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CircleNumberProgressBar">
+        <attr name="progress_current" format="integer"/>
+        <attr name="progress_max" format="integer"/>
+
+        <attr name="progress_unreached_color" format="color" />
+        <attr name="progress_reached_color" format="color" />
+
+        <attr name="progress_unreached_width" format="dimension" />
+        <attr name="progress_reached_width" format="dimension" />
+
+        <attr name="progress_center_size" format="dimension" />
+        <attr name="progress_text_size" format="dimension" />
+
+        <attr name="progress_center_color" format="color" />
+        <attr name="progress_text_color" format="color" />
+
+        <attr name="progress_padding" format="dimension" />
+
+        <attr name="progress_text_visibility" format="boolean"/>
+        <attr name="progress_text_center_visibility" format="boolean">
+        </attr>
+
+    </declare-styleable>
+</resources>
