@@ -3,6 +3,7 @@ package com.circlenumberprogressbar.view;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.iccrookie.circlenumberprogressbar.CircleNumberProgressBar;
 import com.iccrookie.circlenumberprogressbar.OnProgressBarListener;
@@ -20,18 +21,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         progressBar = (CircleNumberProgressBar) findViewById(R.id.progress_bar);
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
+        final Timer timer = new Timer();
+        progressBar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
+            public void onClick(View v) {
+                timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        progressBar.incrementProgressBy(1);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                progressBar.incrementProgressBy(1);
+                            }
+                        });
                     }
-                });
+                },1000,50);
             }
-        },1000,50);
+        });
+
         progressBar.setOnProgressBarListener(new OnProgressBarListener() {
             @Override
             public void onProgressChange(float current, float max) {
